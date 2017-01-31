@@ -8,7 +8,7 @@
 
 - name: PostgreSQL | Ensure PostgreSQL is running
   service:
-    name: "postgresql"
+    name: postgresql
     state: started
 
 - name: PostgreSQL | Create application db 

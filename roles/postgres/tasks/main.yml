@@ -13,9 +13,9 @@
 
 - name: PostgreSQL | Create application db 
   become: yes
-  become_user: {{ postgresql_admin_user }}
+  become_user: "{{ postgresql_admin_user }}"
   postgresql_db:
-    name: {{ application_db }}
+    name: "{{ application_db }}"
     template: template0
 
 - name: PostgreSQL | Create PostgreSQL application user
@@ -25,7 +25,7 @@
     name: "{{ application_user }}"
     password: "{{ application_user_pass }}"
     state: present
-    priv: ALL/{{ application_db }}
+    priv: ALL/"{{ application_db }}"
 
 - name: PostgreSQL | Ensure configuration directory exists
   file:

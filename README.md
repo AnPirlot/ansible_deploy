@@ -7,5 +7,15 @@ This repository holds the playbooks for installing and configuring all the diffe
 Install ansible to use
 
 ## Running playbooks
+ 
+```
+## Run
+ansible-playbook name-playbook.yml -D -i hosts -l target-server -s -K --ask-vault-pass
 
+## Dry run
 ansible-playbook name-playbook.yml -D -i hosts -l target-server -s -K --ask-vault-pass --check
+
+## Run with differen python interpreter add
+-e 'ansible_python_interpreter=/usr/bin/python3'
+
+```

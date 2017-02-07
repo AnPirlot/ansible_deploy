@@ -4,7 +4,7 @@
   with_items:
     - postgresql-{{ postgresql_version }}
     - postgresql-contrib-{{ postgresql_version }}
-    - psycopg2
+    - python3-psycopg2
 
 - name: PostgreSQL | Ensure PostgreSQL is running
   service:
@@ -25,7 +25,7 @@
     name: "{{ application_user }}"
     password: "{{ application_user_pass }}"
     state: present
-    priv: ALL/"{{ application_db }}"
+    priv: ALL/"{{ application_db }}:ALL"
 
 - name: PostgreSQL | Ensure configuration directory exists
   file:

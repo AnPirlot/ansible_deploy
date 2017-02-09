@@ -31,3 +31,8 @@
   template:
     src: pg_hba.conf.j2
     dest: "{{postgresql_conf_directory}}/pg_hba.conf"
+
+- name: PostgreSQL | Update postgresql.conf
+  template: 
+    src: postgresql.conf.j2
+    dest: "{{postgresql_conf_directory}}/postgresql.conf"

@@ -16,3 +16,13 @@
   become_user: "{{ postgresql_admin_user }}"
   postgresql_db:
     name: "{{ application_db }}"
+
+- name: PostgreSQL | Create PostgreSQL application user
+  become: yes
+  become_user: "{{ postgresql_admin_user }}"
+  postgresql_user:
+    db: "{{ application_db }}"
+    name: "{{ application_user }}"
+    password: "{{ application_user_pass }}"
+    state: present
+    priv: ALL

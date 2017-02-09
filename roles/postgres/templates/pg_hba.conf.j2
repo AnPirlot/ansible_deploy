@@ -88,7 +88,7 @@ local   all             postgres                                peer
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
 # "local" is for Unix domain socket connections only
-local   all             all                                     peer
+#local   all             all                                     peer
 # IPv4 local connections:
 host    all             all             127.0.0.1/32            md5
 # IPv6 local connections:
@@ -102,5 +102,5 @@ host    all             all             ::1/128                 md5
   host    all         all         192.168.10.0       255.255.255.0    md5
 
 # Configured users
-# TYPE        DATABASE                    USER                     ADDRESS         METHOD
-  {{ type }}  {{ api_application_db }}    {{ application_user }}   {{Address}}     {{ auth_method }}     
+# TYPE        DATABASE                 USER                     ADDRESS          METHOD
+  {{ type }}  {{ application_db }}     {{ application_user }}   {{ address }}    {{ auth_method }}     

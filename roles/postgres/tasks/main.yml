@@ -26,3 +26,8 @@
     password: "{{ application_user_pass }}"
     state: present
     priv: ALL
+
+- name: PostgreSQL | Update pg_hba.conf
+  template:
+    src: pg_hba.conf.j2
+    dest: "{{postgresql_conf_directory}}/pg_hba.conf"

@@ -16,33 +16,3 @@
   become_user: "{{ postgresql_admin_user }}"
   postgresql_db:
     name: "{{ application_db }}"
-    template: template0
-
-- name: PostgreSQL | Create PostgreSQL application user
-  become: yes
-  become_user: "{{ postgresql_admin_user }}"
-  postgresql_user:
-    name: "{{ application_user }}"
-    password: "{{ application_user_pass }}"
-    state: present
-    priv: ALL/"{{ application_db }}:ALL"
-
-- name: PostgreSQL | Ensure configuration directory exists
-  file:
-    path: "{{ postgresql_conf_directory }}"
-    state: directory
-
-- name: PostgreSQL | Update pg_hba.conf
-  template:
-    src: pg_hba.conf.j2
-    dest: "{{postgresql_conf_directory}}/pg_hba.conf"
-
-- name: PostgreSQL | Update postgresql.conf
-  template: 
-    src: postgresql.conf.j2
-    dest: "{{postgresql_conf_directory}}/postgresql.conf"
-
-- name: PostgreSQL | Restart PostgreSQL
-  service:
-    name: "postgresql"
-    state: restarted

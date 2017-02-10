@@ -27,6 +27,11 @@
     state: present
     priv: ALL
 
+- name: PostgreSQL | Ensure configuration directory exists
+  file:
+    path: "{{ postgresql_conf_directory }}"
+    state: directory
+
 - name: PostgreSQL | Update pg_hba.conf
   template:
     src: pg_hba.conf.j2
@@ -36,3 +41,8 @@
   template: 
     src: postgresql.conf.j2
     dest: "{{postgresql_conf_directory}}/postgresql.conf"
+
+- name: PostgreSQL | Restart PostgreSQL
+  service:
+    name: "postgresql"
+    state: restarted

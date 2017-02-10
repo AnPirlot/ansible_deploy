@@ -100,5 +100,5 @@ host    all             all             ::1/128                 md5
 #host    replication     postgres        ::1/128                 md5
 
 # Configured users
-# TYPE        DATABASE                 USER                     ADDRESS          METHOD
-  {{ type }}  {{ application_db }}     {{ application_user }}   {{ address }}    {{ auth_method }}     
+# TYPE        DATABASE                 USER                       ADDRESS          METHOD
+  {{ type }}  "{{ application_db }}"   "{{ application_user }}"   {{ address }}    {{ auth_method }}     

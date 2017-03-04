@@ -4,7 +4,13 @@ This repository holds the playbooks for installing and configuring all the diffe
 
 ## Installation
 
-Install ansible to use
+Install ansible on the control machine
+http://docs.ansible.com/ansible/intro_installation.html#getting-ansible
+```
+pip install ansible
+```
+
+Install python on the managed machines
 
 ## Running playbooks
  

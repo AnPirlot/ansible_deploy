@@ -6,6 +6,11 @@
     path: "/{{ app_name }}/virtualenv"
     state: directory
 
+- name: Falcon | Install virtualen
+  pip:
+    name: virtualenv
+    state: present
+
 - name: Falcon | Install Falcon
   pip: 
     name: falcon 

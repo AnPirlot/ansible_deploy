@@ -1,2 +1,17 @@
 ---
-# tasks file for __template__
+#set up virtual environment where these need to be installed
+#http://docs.ansible.com/ansible/pip_module.html
+- name: Falcon | Install Falcon
+  pip: 
+    name: falcon 
+    state: present
+
+- name: Falcon | Install UWSGI
+  pip: 
+    name: uwsgi 
+    state: present
+
+- name: Falcon | Install psycopg2
+  pip: 
+    name: psycopg2 
+    state: present
